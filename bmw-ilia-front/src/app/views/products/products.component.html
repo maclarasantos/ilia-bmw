@@ -1,0 +1,20 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-3 mb-4" *ngFor="let product of products">
+      <div class="card h-100">
+        <img class="card-img-top" [src]="product.url" alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title">{{ product.name }}</h5>
+          <div>
+            <p class="card-text">{{ truncateText(product.description, 150) }}</p>
+            <p class="card-text">A partir de  {{ product.price | currency:'BRL' }}</p>  
+          </div>
+          <small class="text-muted">Tipo: {{ product.type }}</small>
+        </div>
+        <div class="card-footer">
+          <a href="#" class="card-link" (click)="goToProduct($event, product)">Ver mais</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

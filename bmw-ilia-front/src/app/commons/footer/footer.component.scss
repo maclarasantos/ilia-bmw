@@ -1,0 +1,31 @@
+.maria-footer {
+  background-image: linear-gradient(to bottom, #929292, #727272, #454545);
+  color: #fff;
+  text-align: center;
+  padding: 20px 0;
+}
+
+.maria-footer .container {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+.maria-footer .social-links {
+  list-style: none;
+  padding: 0;
+}
+
+.maria-footer .social-links li {
+  display: inline;
+  margin: 0 10px;
+}
+
+.maria-footer .social-links a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.maria-footer .social-links a:hover {
+  text-decoration: underline;
+}

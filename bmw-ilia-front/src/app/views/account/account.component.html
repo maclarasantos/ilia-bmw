@@ -1,0 +1,52 @@
+<div class="background" *ngIf="!showQuotes && !showError">
+  <div class="overlay">
+    <div class="email-form-container">
+      <h1>Consultar orçamentos</h1>
+      <input
+        type="email"
+        placeholder="mail@mail.com"
+        class="email-input"
+        [(ngModel)]="email"
+      />
+      <button class="submit-button" (click)="getQuote(email)">Consultar</button>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="!showQuotes && showError">
+  <p class="title-quote">Orçamentos não encontrados!</p>
+</div>
+
+<div *ngIf="showQuotes && !showError">
+  <p class="title-quote">
+    Olá {{ quotes[0].person.name }}, aqui está o seu histórico de orçamentos. Em
+    breve, um representante entrará em contato!
+  </p>
+  <div *ngFor="let quote of quotes" class="container mt-5">
+    <div class="card mb-3">
+      <div class="row g-0">
+        <div class="col-md-4">
+          <img
+            [src]="quote.product.url"
+            class="img-fluid rounded-start"
+            [alt]="quote.product.name"
+          />
+        </div>
+        <div class="col-md-8">
+          <div class="card-body">
+            <h5 class="card-title">{{ quote.product.name }}</h5>
+            <p class="card-text">{{ quote.product.description }}</p>
+            <p class="card-text">
+              <small class="text-body-secondary">{{
+                quote.product.price | currency : "BRL"
+              }}</small>
+            </p>
+            <a href="#" class="card-link" (click)="cancelQuote(quote.id)"
+              >Cancelar orçamento</a
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

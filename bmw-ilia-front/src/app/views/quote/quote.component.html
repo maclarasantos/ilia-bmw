@@ -1,0 +1,64 @@
+<div class="container mt-5">
+  <div class="card mb-3">
+    <div class="row g-0">
+      <div class="col-md-4">
+        <img
+          [src]="product?.url"
+          class="img-fluid rounded-start"
+          [alt]="product?.name"
+        />
+      </div>
+      <div class="col-md-8">
+        <div class="card-body">
+          <h5 class="card-title">{{ product?.name }}</h5>
+          <p class="card-text">{{ product?.description }}</p>
+          <p class="card-text">
+            <small class="text-body-secondary"
+              >A partir de {{ product?.price | currency : "BRL" }}</small
+            >
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="!showAdditionalFields" class="mt-3">
+    <div class="mt-3">
+      <input
+        type="email"
+        class="form-control"
+        placeholder="Enter your email"
+        [(ngModel)]="email"
+      />
+      <button class="btn custom-gray-btn mt-2" (click)="verifyEmail(email)">
+        Verificar
+      </button>
+    </div>
+  </div>
+
+  <div *ngIf="showAdditionalFields" class="mt-3">
+    <div class="form-group">
+      <label for="name">Nome</label>
+      <input
+        type="text"
+        id="name"
+        class="form-control"
+        [(ngModel)]="name"
+        [value]="person?.name"
+      />
+    </div>
+    <div class="form-group mt-2">
+      <label for="phone">Telefone</label>
+      <input
+        type="text"
+        id="phone"
+        class="form-control"
+        [(ngModel)]="phone"
+        [value]="person?.cellphone"
+      />
+    </div>
+    <button class="btn custom-gray-btn mt-2" (click)="sendQuote()">
+      Solicitar Orçamento
+    </button>
+  </div>
+</div>

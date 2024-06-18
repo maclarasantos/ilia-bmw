@@ -1,0 +1,22 @@
+<nav class="navbar navbar-light bg-light">
+  <a class="navbar-brand" href="#">
+    <img
+      src="https://www.bmw.com.br/content/dam/bmw/common/images/logo-icons/BMW/BMW_White_Logo.svg.asset.1670245093434.svg"
+      width="40"
+      height="40"
+      alt=""
+      (click)="goToHome($event)"
+    />
+  </a>
+  <ul class="nav">
+    <li class="nav-item">
+      <a class="nav-link products" (click)="viewProducts($event)">Modelos</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link account" (click)="myAccount($event)">Meus orçamentos</a>
+    </li>
+    <a class="nav-link" (click)="logout()" *ngIf="showLogout">
+      <i class="fas fa-sign-out-alt"></i> {{ mail }}
+    </a>
+  </ul>
+</nav>
