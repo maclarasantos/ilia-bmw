@@ -46,7 +46,6 @@ public class PersonService {
                     targetField.set(target, value);
                 }
             } catch (NoSuchFieldException | IllegalAccessException e) {
-                // Ignore fields that don't exist in the target or are not accessible
             }
         }
         return target;
